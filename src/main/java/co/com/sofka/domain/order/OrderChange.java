@@ -19,7 +19,7 @@ public class OrderChange extends EventChange {
             if (numProducts == 6){
                 throw new IllegalArgumentException("No puedes agregar mas productos");
             }
-            order.products.add(new Product()); // TODO: 13/03/22
+            //order.products.add(new Product()); // TODO: 13/03/22
         });
 
     }

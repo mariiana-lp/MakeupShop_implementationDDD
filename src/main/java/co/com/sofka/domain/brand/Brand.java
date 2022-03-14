@@ -1,13 +1,32 @@
 package co.com.sofka.domain.brand;
 
+import co.com.sofka.domain.brand.events.BrandCrated;
 import co.com.sofka.domain.brand.value.BrandId;
+import co.com.sofka.domain.brand.value.ProductId;
+import co.com.sofka.domain.brand.value.ProviderId;
 import co.com.sofka.domain.generic.AggregateEvent;
 
-public class Brand extends AggregateEvent<BrandId> {
-    private final BrandId brandId;
+import java.util.Set;
 
-    public Brand (BrandId brandId){
+public class Brand extends AggregateEvent<BrandId> {
+    protected ProviderId providerId;
+    protected Set<ProductId> productIdLis;
+
+    public Brand (BrandId brandId, ProviderId providerId){
         super(brandId);
-        this.brandId = brandId;
+        appendChange(new BrandCrated(providerId)).apply();
+    }
+
+    private Brand(BrandId brandId){
+        super(brandId);
+        subscribe(new BrandChange(this));
+    }
+
+    public ProviderId providerId() {
+        return providerId;
+    }
+
+    public Set<ProductId> productIdLis() {
+        return productIdLis;
     }
 }
