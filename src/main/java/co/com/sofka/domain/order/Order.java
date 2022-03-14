@@ -5,6 +5,7 @@ import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.domain.order.events.AddedProduct;
 import co.com.sofka.domain.order.events.CompletedOrder;
+import co.com.sofka.domain.order.events.OrderCreated;
 import co.com.sofka.domain.order.events.OrderRemoved;
 import co.com.sofka.domain.order.value.InvoiceId;
 import co.com.sofka.domain.order.value.OrderId;
@@ -21,8 +22,7 @@ public class Order extends AggregateEvent<OrderId> {
 
     public Order(OrderId orderId, StateOrder stateOrder){
         super(orderId);
-        this.orderId = orderId;
-        this.stateOrder = stateOrder;
+        appendChange(new OrderCreated(stateOrder)).apply();
     }
 
     public  static Order from (OrderId personaId, List<DomainEvent> events){
