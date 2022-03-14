@@ -1,4 +1,6 @@
 package co.com.sofka.domain.store.value;
 
-public class AdminId {
+import co.com.sofka.domain.generic.Identity;
+
+public class AdminId extends Identity {
 }

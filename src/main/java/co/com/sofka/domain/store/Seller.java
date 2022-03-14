@@ -2,27 +2,24 @@ package co.com.sofka.domain.store;
 
 import co.com.sofka.domain.generic.Entity;
 import co.com.sofka.domain.generic.Identity;
-import co.com.sofka.domain.store.value.ClientId;
 import co.com.sofka.domain.store.value.DataPerson;
 import co.com.sofka.domain.store.value.ID;
-import co.com.sofka.domain.store.value.TypeClient;
+import co.com.sofka.domain.store.value.SellerId;
 
-public class Client extends Entity {
+public class Seller extends Entity {
+
     private DataPerson dataPerson;
     private ID id;
-    private TypeClient typeClient;
+    private boolean state;
 
-    public Client(ClientId clientId, DataPerson dataPerson, ID id) {
-        super(clientId);
+    public Seller(SellerId entityId, DataPerson dataPerson, ID id, boolean state) {
+        super(entityId);
         this.dataPerson = dataPerson;
         this.id = id;
-
+        this.state = state;
     }
 
     // TODO: 13/03/22 comportamientos
-    public void clienteAntiguo (){
-        this.typeClient = new TypeClient(TypeClient.Fase.ANTIGUO);
-    }
 
     public DataPerson dataPerson() {
         return dataPerson;
@@ -32,7 +29,7 @@ public class Client extends Entity {
         return id;
     }
 
-    public TypeClient typeClient() {
-        return typeClient;
+    public boolean state() {
+        return state;
     }
 }
