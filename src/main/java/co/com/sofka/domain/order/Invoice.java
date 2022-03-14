@@ -19,6 +19,8 @@ public class Invoice extends Entity<InvoiceId> {
         this.precioTotal = precioTotal;
     }
 
+    // TODO: 13/03/22 definir comportamientos
+
     public Date Fecha() {
         return fecha;
     }

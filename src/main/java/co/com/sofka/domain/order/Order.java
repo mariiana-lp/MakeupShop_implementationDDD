@@ -52,6 +52,8 @@ public class Order extends AggregateEvent<OrderId> {
         //appendChange(new AddedProduct(orderId, product)).apply();
     }
 
+    // TODO: 13/03/22 definir comportamientos
+
     public OrderId orderId() {
         return orderId;
     }

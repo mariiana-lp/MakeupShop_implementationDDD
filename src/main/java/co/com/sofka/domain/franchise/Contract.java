@@ -15,4 +15,6 @@ public class Contract extends Entity {
     public DataContract dataContract() {
         return dataContract;
     }
+
+    // TODO: 13/03/22 Definir comportamientos
 }
