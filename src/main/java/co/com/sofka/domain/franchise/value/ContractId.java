@@ -1,4 +1,15 @@
 package co.com.sofka.domain.franchise.value;
 
-public class ContractId {
+import co.com.sofka.domain.generic.Identity;
+
+public class ContractId extends Identity {
+    private ContractId(String valor){
+        super(valor);
+    }
+
+    public ContractId(){}
+
+    public static ContractId of(String valor){
+        return new ContractId(valor);
+    }
 }

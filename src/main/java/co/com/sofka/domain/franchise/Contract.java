@@ -1,4 +1,18 @@
 package co.com.sofka.domain.franchise;
 
-public class Contract {
+import co.com.sofka.domain.franchise.value.ContractId;
+import co.com.sofka.domain.franchise.value.DataContract;
+import co.com.sofka.domain.generic.Entity;
+
+public class Contract extends Entity {
+    private DataContract dataContract;
+
+    public Contract(ContractId contractId, DataContract dataContract){
+        super(contractId);
+        this.dataContract = dataContract;
+    }
+
+    public DataContract dataContract() {
+        return dataContract;
+    }
 }
